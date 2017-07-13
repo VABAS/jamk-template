@@ -59,6 +59,8 @@
 
   \end{titlepage}
 }
+\setlength{\parindent}{0mm}
+
 % First degree heading.
 \titleformat{\section}
   {\bfseries\Large}
