@@ -1,6 +1,6 @@
 \LoadClass{article}
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{jamk}[2017-07-11 Jamkin asiakirjamalli]
+\ProvidesClass{jamk}
 \RequirePackage{titlesec}
 \RequirePackage{geometry}
  \geometry{
@@ -16,26 +16,26 @@
 
 % ToC, LoF and LoT formatting.
 \RequirePackage{tocloft}
-\renewcommand{\cfttoctitlefont}{\Large\textbf}
-\renewcommand{\cftaftertoctitle}{\hfill}
+\renewcommand{\cfttoctitlefont}{\LARGE\textbf}
+%\renewcommand{\cftaftertoctitle}{\hfill}
 \renewcommand{\cftloftitlefont}{\Large\textbf}
-\renewcommand{\cftafterloftitle}{\hfill}
+%\renewcommand{\cftafterloftitle}{\hfill}
 \renewcommand{\cftlottitlefont}{\Large\textbf}
-\renewcommand{\cftafterlottitle}{\hfill}
+%\renewcommand{\cftafterlottitle}{\hfill}
 
 \RequirePackage{titletoc}
 \titlecontents{section}
-  [2em]{}{\contentslabel{7mm}}{}{\titlerule*[2mm]{.}\contentspage}
+  [30mm]{\vskip5mm\bfseries\large}{\contentslabel{2em}}{}{\titlerule*[1mm]{.}\contentspage}
 \titlecontents{subsection}
-  [2em]{}{\contentslabel{7mm}}{}{\titlerule*[2mm]{.}\contentspage}
+  [37mm]{\large}{\contentslabel{3em}}{}{\titlerule*[1mm]{.}\contentspage}
 \titlecontents{figure}
-  [2em]{}
+  [30mm]{}
   {\contentslabel{7mm}\hspace*{-1em}}{}
   {\titlerule*[2mm]{.}\contentspage}
 \titlecontents{table}
-  [2em]{}
+  [30mm]{}
   {\contentslabel{7mm}\hspace*{-1em}}{}
-  {\titlerule*[2mm]{.}\contentspage}
+  {\titlerule*[1mm]{.}\contentspage}
 
 \RequirePackage[utf8]{inputenc}
 \RequirePackage{fontspec}
@@ -46,20 +46,20 @@
 \RequirePackage{tikz}
 \RequirePackage{color}
 \definecolor{jamkblue}{RGB}{0, 90, 125}
+\leftskip=23mm
 \newcommand{\makejamktitle}{
   \begin{titlepage}
-    \begin{tikzpicture}[remember picture,overlay,shift={(25mm,-5mm)}]
+    \begin{tikzpicture}[remember picture,overlay,shift={(29mm,-4mm)}]
       \node (0,0)
         {\includegraphics[width=58.7mm]{jamkfi.png}};
     \end{tikzpicture}
-    \begin{tikzpicture}[remember picture,overlay,shift={(-27mm,-255mm)}]
+    \begin{tikzpicture}[remember picture,overlay,shift={(-24mm,-255mm)}]
       \fill [jamkblue] (9.51mm,257.19mm) rectangle (0,0);
     \end{tikzpicture}
-    \begin{tikzpicture}[remember picture,overlay,shift={(35mm,-255mm)}]
+    \begin{tikzpicture}[remember picture,overlay,shift={(38mm,-252mm)}]
       \node (0,0)
         {\includegraphics[width=87.21mm]{jamkfi_long.png}};
     \end{tikzpicture}
-    \leftskip=23mm
     \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\
     \textbf{\Huge Opinnäytetyön nimi} \\
     \textbf{\Large Mahdollinen alanimi} \\
@@ -82,7 +82,6 @@
     }
 
   \end{titlepage}
-
   \tableofcontents
   \listoffigures
   \listoftables
@@ -94,17 +93,17 @@
 % First degree heading.
 \titleformat{\section}
   {\bfseries\Large}
-  {\thesection}{1em}
+  {\hspace{23mm}\thesection}{1em}
   {}
 
 % Second degree heading.
-\titleformat{\subsubsection}
+\titleformat{\subsection}
   {\bfseries\large}
-  {\thesubsection}{1em}
+  {\hspace{23mm}\thesubsection}{1em}
   {}
 
 % Third degree heading.
-\titleformat{\subsubsubsection}
+\titleformat{\subsubsection}
   {}
-  {\thesubsubsection}{1em}
+  {\hspace{23mm}\thesubsubsection}{1em}
   {}
