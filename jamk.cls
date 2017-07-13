@@ -14,7 +14,7 @@
 \def\@@ptsize{12pt}
 \renewcommand{\familydefault}{\sfdefault}
 
-% ToC, LoF and LoT formatting.
+% ToC, LoF and LoT title formatting.
 \RequirePackage{tocloft}
 \renewcommand{\cfttoctitlefont}{\LARGE\textbf}
 %\renewcommand{\cftaftertoctitle}{\hfill}
@@ -23,6 +23,7 @@
 \renewcommand{\cftlottitlefont}{\Large\textbf}
 %\renewcommand{\cftafterlottitle}{\hfill}
 
+% TOC entry formats.
 \RequirePackage{titletoc}
 \titlecontents{section}
   [30mm]{\vskip5mm\bfseries\large}{\contentslabel{2em}}{}{\titlerule*[1mm]{.}\contentspage}
@@ -38,15 +39,21 @@
   {\titlerule*[1mm]{.}\contentspage}
 
 \RequirePackage[utf8]{inputenc}
+
+% Setting main font.
 \RequirePackage{fontspec}
 \setmainfont{TeX Gyre Termes}
+
+% Line spacing.
 \renewcommand{\baselinestretch}{1.5}
+
 \RequirePackage{graphicx}
 \RequirePackage[absolute,overlay]{textpos}
 \RequirePackage{tikz}
 \RequirePackage{color}
 \definecolor{jamkblue}{RGB}{0, 90, 125}
 \leftskip=23mm
+% Jamk titlepage command.
 \newcommand{\makejamktitle}{
   \begin{titlepage}
     \begin{tikzpicture}[remember picture,overlay,shift={(29mm,-4mm)}]
@@ -89,6 +96,21 @@
   \newpage
 }
 \setlength{\parindent}{0mm}
+
+
+% Headers and footers.
+\RequirePackage{fancyhdr}
+% This is required so that TOC-page has same header and footer as others do.
+\fancypagestyle{plain}{
+  \fancyhf{}
+  \renewcommand{\headrulewidth}{0pt}
+  \fancyhead[R]{\thepage}
+}
+% Then same for rest of the pages.
+\pagestyle{fancy}
+\renewcommand{\headrulewidth}{0pt}
+\fancyhf{}
+\rhead{\thepage}
 
 % First degree heading.
 \titleformat{\section}
