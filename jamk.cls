@@ -13,6 +13,30 @@
  }
 \def\@@ptsize{12pt}
 \renewcommand{\familydefault}{\sfdefault}
+
+% ToC, LoF and LoT formatting.
+\RequirePackage{tocloft}
+\renewcommand{\cfttoctitlefont}{\Large\textbf}
+\renewcommand{\cftaftertoctitle}{\hfill}
+\renewcommand{\cftloftitlefont}{\Large\textbf}
+\renewcommand{\cftafterloftitle}{\hfill}
+\renewcommand{\cftlottitlefont}{\Large\textbf}
+\renewcommand{\cftafterlottitle}{\hfill}
+
+\RequirePackage{titletoc}
+\titlecontents{section}
+  [2em]{}{\contentslabel{7mm}}{}{\titlerule*[2mm]{.}\contentspage}
+\titlecontents{subsection}
+  [2em]{}{\contentslabel{7mm}}{}{\titlerule*[2mm]{.}\contentspage}
+\titlecontents{figure}
+  [2em]{}
+  {\contentslabel{7mm}\hspace*{-1em}}{}
+  {\titlerule*[2mm]{.}\contentspage}
+\titlecontents{table}
+  [2em]{}
+  {\contentslabel{7mm}\hspace*{-1em}}{}
+  {\titlerule*[2mm]{.}\contentspage}
+
 \RequirePackage[utf8]{inputenc}
 \RequirePackage{fontspec}
 \setmainfont{TeX Gyre Termes}
@@ -58,6 +82,12 @@
     }
 
   \end{titlepage}
+
+  \tableofcontents
+  \listoffigures
+  \listoftables
+
+  \newpage
 }
 \setlength{\parindent}{0mm}
 
