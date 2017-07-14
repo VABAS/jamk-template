@@ -1,4 +1,4 @@
-\LoadClass{article}
+\LoadClass[12pt]{article}
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{jamk}
 \RequirePackage{titlesec}
@@ -11,8 +11,7 @@
  top=20mm,
  textwidth=13cm,
  }
-\def\@@ptsize{12pt}
-\renewcommand{\familydefault}{\sfdefault}
+ \RequirePackage[sfdefault,lf]{carlito}
 
 % ToC, LoF and LoT title formatting.
 \RequirePackage{tocloft}
@@ -26,9 +25,9 @@
 % TOC entry formats.
 \RequirePackage{titletoc}
 \titlecontents{section}
-  [30mm]{\vskip5mm\bfseries\large}{\contentslabel{2em}}{}{\titlerule*[1mm]{.}\contentspage}
+  [30mm]{\vskip5mm\bfseries\large}{\contentslabel{1em}}{}{\titlerule*[1mm]{.}\contentspage}
 \titlecontents{subsection}
-  [37mm]{\large}{\contentslabel{3em}}{}{\titlerule*[1mm]{.}\contentspage}
+  [37mm]{\large}{\contentslabel{2em}}{}{\titlerule*[1mm]{.}\contentspage}
 \titlecontents{figure}
   [30mm]{}
   {\contentslabel{7mm}\hspace*{-1em}}{}
@@ -40,11 +39,6 @@
 
 \RequirePackage[utf8]{inputenc}
 
-% Setting main font.
-\RequirePackage{fontspec}
-% Carlito is nearly same as Calibri but not proprietary.
-\setmainfont{Carlito}
-
 % Line spacing.
 \renewcommand{\baselinestretch}{1.5}
 
@@ -54,8 +48,21 @@
 \RequirePackage{color}
 \definecolor{jamkblue}{RGB}{0, 90, 125}
 \leftskip=23mm
+
 % Jamk titlepage command.
-\newcommand{\makejamktitle}{
+\newcommand{\makejamktitle}[9]{
+    \def\tempa{#1}
+    \def\tempb{#2}
+    \def\tempc{#3}
+    \def\tempd{#4}
+    \def\tempe{#5}
+    \def\tempf{#6}
+    \def\tempg{#7}
+    \def\temph{#8}
+    \def\tempi{#9}
+    \makejamktitlecont
+}
+\newcommand{\makejamktitlecont}[1]{
   \begin{titlepage}
     \begin{tikzpicture}[remember picture,overlay,shift={(29mm,-4mm)}]
       \node (0,0)
@@ -68,25 +75,20 @@
       \node (0,0)
         {\includegraphics[width=87.21mm]{jamkfi_long.png}};
     \end{tikzpicture}
-    \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\
-    \textbf{\Huge Opinnäytetyön nimi} \\
-    \textbf{\Large Mahdollinen alanimi} \\
-    \\
-    \\
-    {
-    \large Etunimi Sukunimi
-    \\
-    \\
-    \\
-    \\
-    \\
-    \\
-    \\
-    \\
-    Opinnäytetyö \\
-    Kuukausi Vuosi \\
-    Tutkinto-ohjelman nimi esim. Logistiikan koulutusohjelma \\
-    Koulutusalan nimi esim.Tekniikan ja liikenteen ala
+    \\ \\ \\ \\ \\ \\ \\ \\ \\
+    \textbf{\Huge \tempa}\par
+    \textbf{\LARGE \tempb} \\
+    \linespread{1}\Large{
+      \\ \\ \\ \\
+      \tempc \\
+      \tempd \\
+      \tempe \\
+      \tempf \\
+      \\ \\ \\ \\ \\ \\ \\
+      \tempg \\
+      \temph \\
+      \tempi \\
+      #1
     }
 
   \end{titlepage}
@@ -115,13 +117,13 @@
 
 % First degree heading.
 \titleformat{\section}
-  {\bfseries\Large}
+  {\bfseries\LARGE}
   {\hspace{23mm}\thesection}{1em}
   {}
 
 % Second degree heading.
 \titleformat{\subsection}
-  {\bfseries\large}
+  {\Large}
   {\hspace{23mm}\thesubsection}{1em}
   {}
 
