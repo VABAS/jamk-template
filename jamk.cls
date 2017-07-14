@@ -42,7 +42,8 @@
 
 % Setting main font.
 \RequirePackage{fontspec}
-\setmainfont{TeX Gyre Termes}
+% Carlito is nearly same as Calibri but not proprietary.
+\setmainfont{Carlito}
 
 % Line spacing.
 \renewcommand{\baselinestretch}{1.5}
