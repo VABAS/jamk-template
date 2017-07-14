@@ -6,7 +6,7 @@
  \geometry{
  a4paper,
  total={170mm,257mm},
- left=20mm,
+ left=43mm,
  right=20mm,
  top=20mm,
  textwidth=13cm,
@@ -25,16 +25,18 @@
 % TOC entry formats.
 \RequirePackage{titletoc}
 \titlecontents{section}
-  [30mm]{\vskip5mm\bfseries\large}{\contentslabel{1em}}{}{\titlerule*[1mm]{.}\contentspage}
+  [0mm]{\vskip5mm\bfseries\large}{\contentslabel{1em}}{}{\titlerule*[1mm]{.}\contentspage}
 \titlecontents{subsection}
-  [37mm]{\large}{\contentslabel{2em}}{}{\titlerule*[1mm]{.}\contentspage}
+  [10mm]{\large}{\contentslabel{2em}}{}{\titlerule*[1mm]{.}\contentspage}
+\titlecontents{subsubsection}
+  [20mm]{\large}{\contentslabel{2em}}{}{\titlerule*[1mm]{.}\contentspage}
 \titlecontents{figure}
-  [30mm]{}
-  {\contentslabel{7mm}\hspace*{-1em}}{}
-  {\titlerule*[2mm]{.}\contentspage}
+  [0mm]{}
+  {\contentslabel{7mm}}{}
+  {\titlerule*[1mm]{.}\contentspage}
 \titlecontents{table}
-  [30mm]{}
-  {\contentslabel{7mm}\hspace*{-1em}}{}
+  [0mm]{}
+  {\contentslabel{7mm}}{}
   {\titlerule*[1mm]{.}\contentspage}
 
 \RequirePackage[utf8]{inputenc}
@@ -47,7 +49,7 @@
 \RequirePackage{tikz}
 \RequirePackage{color}
 \definecolor{jamkblue}{RGB}{0, 90, 125}
-\leftskip=23mm
+%\leftskip=23mm
 
 % Jamk titlepage command.
 \newcommand{\makejamktitle}[9]{
@@ -76,15 +78,15 @@
         {\includegraphics[width=87.21mm]{jamkfi_long.png}};
     \end{tikzpicture}
     \\ \\ \\ \\ \\ \\ \\ \\ \\
-    \textbf{\Huge \tempa}\par
-    \textbf{\LARGE \tempb} \\
-    \linespread{1}\Large{
-      \\ \\ \\ \\
+    \textbf{\fontsize{26pt}{26pt}\selectfont \tempa}\par
+    \textbf{\fontsize{18pt}{18pt}\selectfont \tempb} \\
+    \linespread{1}\fontsize{14pt}{14pt}\selectfont{
+      \\ \\ \\
       \tempc \\
       \tempd \\
       \tempe \\
       \tempf \\
-      \\ \\ \\ \\ \\ \\ \\
+      \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\ \\
       \tempg \\
       \temph \\
       \tempi \\
@@ -100,6 +102,17 @@
 }
 \setlength{\parindent}{0mm}
 \setlength{\parskip}{5mm}
+
+% Figures and captions.
+\renewcommand{\fps@figure}{!ht}
+
+\RequirePackage{caption}
+\captionsetup{format=plain,
+              labelfont=it,
+              singlelinecheck=false,
+              justification=raggedright,
+              skip=0pt,
+              margin=0pt}
 
 % Headers and footers.
 \RequirePackage{fancyhdr}
@@ -117,18 +130,18 @@
 
 % First degree heading.
 \titleformat{\section}
-  {\bfseries\LARGE}
-  {\hspace{23mm}\thesection}{1em}
+  {\fontsize{18pt}{12pt}\bfseries}
+  {\thesection}{1em}
   {}
 
 % Second degree heading.
 \titleformat{\subsection}
-  {\Large}
-  {\hspace{23mm}\thesubsection}{1em}
+  {\fontsize{16pt}{12pt}\selectfont}
+  {\thesubsection}{1em}
   {}
 
 % Third degree heading.
 \titleformat{\subsubsection}
-  {}
-  {\hspace{23mm}\thesubsubsection}{1em}
+  {\fontsize{14pt}{12pt}\selectfont}
+  {\thesubsubsection}{1em}
   {}
