@@ -101,7 +101,7 @@
   \newpage
 }
 \setlength{\parindent}{0mm}
-\setlength{\parskip}{5mm}
+\setlength{\parskip}{2.5mm}
 
 % Figures and captions.
 \renewcommand{\fps@figure}{!ht}
