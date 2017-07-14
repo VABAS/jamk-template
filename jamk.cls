@@ -97,7 +97,7 @@
   \newpage
 }
 \setlength{\parindent}{0mm}
-
+\setlength{\parskip}{5mm}
 
 % Headers and footers.
 \RequirePackage{fancyhdr}
