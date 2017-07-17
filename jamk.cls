@@ -13,6 +13,15 @@
  }
  \RequirePackage[sfdefault,lf]{carlito}
 
+% Customizing couple of finnish terms.
+ \AtBeginDocument{
+   \@ifpackagewith{babel}{finnish}{
+     \addto\captionsfinnish{\renewcommand*\figurename{Kuvio}}
+     \addto\captionsfinnish{\renewcommand*\listfigurename{Kuvioluettelo}}
+     \addto\captionsfinnish{\renewcommand*\listtablename{Taulukkoluettelo}}
+   }{}
+ }
+
 % ToC, LoF and LoT title formatting.
 \RequirePackage{tocloft}
 \renewcommand{\cfttoctitlefont}{\LARGE\textbf}
